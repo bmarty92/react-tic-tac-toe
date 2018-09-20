@@ -7,8 +7,8 @@ function Winner(props) {
   return (
     <div>
       <p>Winner is: {message}</p>
-      <p>X win count: {wins.one}</p>
-      <p>O win count: {wins.two}</p>
+      <p>Devil win count: {wins.one}</p>
+      <p>Rat win count: {wins.two}</p>
       <button onClick={onClick} type="button">
         Restart
       </button>
@@ -16,8 +16,16 @@ function Winner(props) {
   );
 }
 Winner.propTypes = {
-  winner: PropTypes.shape({}).isRequired,
+  winner: PropTypes.shape({
+    icon: PropTypes.string.isRequired,
+    winner: PropTypes.bool.isRequired,
+  }),
   onClick: PropTypes.func.isRequired,
   wins: PropTypes.shape({}).isRequired,
 };
+
+Winner.defaultProps = {
+  winner: undefined,
+};
+
 export default Winner;
